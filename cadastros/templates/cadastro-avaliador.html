@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+{% block title %}BikeFit - Novo Avaliador{% endblock title %}
+{% block content %}
+	<div class="container">
+{% block menuAtual %}Novo Avaliador{% endblock menuAtual %}
+	{# Display a form #}
+	<form action="." method="post" class="form">
+	  {% csrf_token %}
+			{% bootstrap_field formAvaliador.nome %}
+		<div class="row">
+			<div class="col-md-4">
+		        {% bootstrap_field formAvaliador.email %}
+			</div>
+
+			<div class="col-md-4">
+		        {% bootstrap_field formAvaliador.telefone %}
+			</div>
+
+			<div class="col-md-4">
+		        {% bootstrap_field formAvaliador.cidade %}
+			</div>
+
+			<div class="col-md-4">
+		        {% bootstrap_field formAvaliador.endereco %}
+			</div>
+
+			<div class="col-md-4">
+		        {% bootstrap_field formAvaliador.empresa %}
+			</div>
+
+			<div class="col-md-4">
+		        {% bootstrap_field formAvaliador.cpf_cnpj %}
+			</div>
+		</div>
+
+
+	  {% buttons %}
+	    <button type="submit" class="btn btn-success">
+	      {% bootstrap_icon "star" %} Cadastrar
+	    </button>
+	  {% endbuttons %}
+	</form>
+
+
+	<div class="alert alert-success collapse" role="alert">
+	    {% if messages %}
+{#	<ul class="messages">#}
+	    {% for message in messages %}
+		    {{ message }}
+	    {% endfor %}
+{#	</ul>#}
+	{% endif %}
+	</div>
+
+
+{% endblock content %}
+</div>
+{# Read the documentation for more information #}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}BikeFit - Lista de Avaliadores{% endblock title %}
+{% block content %}
+	<div class="container">
+{% block menuAtual %}Lista de Avaliadores{% endblock menuAtual %}
+
+
+		<table class="table table-striped">
+		<thead>
+			<th>Nome</th>
+			<th>Criado em</th>
+			<th>Última Atualização</th>
+			<th>Ver</th>
+			{% for av in avaliadores %}
+			<tr>
+				<td>{{ av.nome }} </td>
+				<td>{{ av.create }}</td>
+				<td>{{ av.update }}</td>
+				<td><a href="/lista/{{ av.id }}/">Ver</a></td>
+			</tr>
+		   {% endfor %}
+		</thead>
+		</table>
+
+{% endblock content %}
+</div>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}BikeFit - Lista de Avaliadores{% endblock title %}
+{% block menuAtual %}Lista de Avaliadores{% endblock menuAtual %}
+{% block content %}
+
+
+		<table class="table table-bordered">
+		<thead>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Telefone</th>
+			<th>Cidade</th>
+			<th>Endereço</th>
+			<th>Empresa</th>
+			<th>CPF/CNPJ</th>
+			<th>Criado em</th>
+			<th>Última atualização.</th>
+			<tr>
+				<td>{{ object.nome }}</td>
+
+				<td>{{ object.email }}</td>
+
+				<td>{{ object.telefone }}</td>
+
+				<td>{{ object.cidade }}</td>
+
+				<td>{{ object.endereco }}</td>
+
+				<td>{{ object.empresa }}</td>
+
+				<td>{{ object.cpf_cnpj }}</td>
+
+				<td>{{ object.create }}</td>
+
+				<td>{{ object.update }}</td>
+			</tr>
+
+
+		</thead>
+		</table>
+
+
+{% endblock content %}
+{# Read the documentation for more information #}

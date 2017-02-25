@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}BikeFit - Novo Atleta{% endblock title %}
+{% block content %}
+{% block menuAtual %}Novo Atleta{% endblock menuAtual %}
+
+<div class="container">
+	{# Display a form #}
+	<form action="." method="post" class="form">
+	  {% csrf_token %}
+{#		  {% bootstrap_form formAtleta %}#}
+		{%  bootstrap_field formAtleta.nome %}
+      <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.email %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.telefone %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.cidade %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.data_nascimento %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.cpf_cnpj %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.ano_ini_esporte %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.modalidade_principal %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.vezes_treina %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.duracao_treino %}
+        </div>
+        <div class="col-md-6">
+          {%  bootstrap_field formAtleta.horas_trein_semana %}
+        </div>
+        <div class="col-md-6">
+          {%  bootstrap_field formAtleta.horas_trein_cada_modalidae %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.modalidade_frequente %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.duracao_treino_longo %}
+        </div>
+        <div class="col-md-4">
+          {%  bootstrap_field formAtleta.profissao %}
+        </div>
+        <div class="col-md-6">
+          {%  bootstrap_field formAtleta.competicoes_frequenta %}
+        </div>
+        <div class="col-md-6">
+          {%  bootstrap_field formAtleta.duracao_provas %}
+        </div>
+        <div class="col-md-6">
+          {%  bootstrap_field formAtleta.tipo_de_relevo %}
+        </div>
+        <div class="col-md-6">
+          {%  bootstrap_field formAtleta.nivel_atleta %}
+        </div>
+      </div>
+{%  bootstrap_field formAtleta.outros %}
+
+	  {% buttons %}
+	    <button type="submit" class="btn btn-success">
+	      {% bootstrap_icon "star" %} Cadastrar
+	    </button>
+	  {% endbuttons %}
+	</form>
+
+    {% if messages %}
+	<ul class="messages">
+	    {% for message in messages %}
+		    {{ message }}
+	    {% endfor %}
+	</ul>
+	{% endif %}
+
+{% endblock content %}
+</div>
+{# Read the documentation for more information #}

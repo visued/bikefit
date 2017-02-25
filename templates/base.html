@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<title>{% block title %}{% endblock title %}</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Custom styles for this template -->
+	<link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
+</head>
+
+<body>
+<div style="padding-bottom: 4%">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{% block menuAtual %}{% endblock menuAtual %}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/cadastro-avaliador/">{% block menu01 %}+ Novo Avaliador{% endblock menu01 %}</a></li>
+            <li><a href="/cadastro-atleta/">{% block menu02 %}+ Novo Atleta{% endblock menu02 %}</a></li>
+            <li><a href="/lista-avaliadores/">{% block menu03 %}Avaliadores{% endblock menu03 %}</a></li>
+            <li><a href="#">{% block menu04 %}Atletas{% endblock menu04 %}</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+
+<div class="site-wrapper">
+	{% block content %}
+	{% endblock content %}
+
+</div>
+</body>
+</html>
