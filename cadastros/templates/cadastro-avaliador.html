@@ -41,7 +41,6 @@
 			</div>
 		</div>
 
-
 	  {% buttons %}
 	    <button type="submit" class="btn btn-success">
 	      {% bootstrap_icon "star" %} Cadastrar
@@ -52,15 +51,12 @@
 
 	<div class="alert alert-success collapse" role="alert">
 	    {% if messages %}
-{#	<ul class="messages">#}
 	    {% for message in messages %}
 		    {{ message }}
 	    {% endfor %}
-{#	</ul>#}
 	{% endif %}
 	</div>
-
-
-{% endblock content %}
 </div>
+{% endblock content %}
+
 {# Read the documentation for more information #}

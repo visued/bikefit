@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from .forms import PerfilAvaliadorForm, PerfilAtletaForm
+from .forms import PerfilAvaliadorForm, PerfilAtletaForm, AvaliacaoPosturalForm
 from django.views.generic import FormView, DetailView
 from django.contrib import messages
 
-from .models import PerfilAvaliador
+from .models import PerfilAvaliador, PerfilAtleta, AvaliacaoPostural
+
+
 
 class PerfilAvaliadorFormView(FormView):
     def get(self, request, *args, **kwargs):
@@ -49,14 +51,48 @@ class PerfilAtletaFormView(FormView):
         }
         return render(request, 'cadastro-atleta.html', context)
 
+class AvaliacaoPosturalFormView(FormView):
+    def get(self, request, *args, **kwargs):
+        formAvaliacaoPostural = AvaliacaoPosturalForm()
+        context = {
+            'title': 'Nova Avaliacao Postural',
+            'formAvaliacaoPostural': formAvaliacaoPostural,
+        }
+        return render(request, 'avaliacao-postural.html', context)
+
+    def post(self, request, *args, **kwargs):
+        formAvaliacaoPosturalSalva = AvaliacaoPosturalForm(request.POST)
+        formAvaliacaoPosturalSalva.save()
+        formAvaliacaoPosturalSalva = AvaliacaoPosturalForm
+        messages.sucess(request, 'Os dados foram salvos com sucesso.')
+
+        context = {
+            'title': 'Nova Avaliacao Postural',
+            'formAvaliacaoPostural': formAvaliacaoPosturalSalva,
+        }
+        return render(request, 'avaliacao-postural.html')
+
+
 def listaAvaliadores(request):
     try:
-        atletas = PerfilAvaliador.objects.all()
+        avaliadores = PerfilAvaliador.objects.all()
     except:
         PerfilAvaliador.DoesNotExist
 
-    return render(request, 'lista-avaliadores.html', {'avaliadores': atletas})
+    return render(request, 'lista-avaliadores.html', {'avaliadores': avaliadores})
+
+def listaAtletas(request):
+    try:
+        atletas = PerfilAtleta.objects.all()
+    except:
+        PerfilAtleta.DoesNotExist
+
+    return render(request, 'lista-atletas.html', {'atletas': atletas})
 
 class AvaliadorDetailView(DetailView):
     model = PerfilAvaliador
     template_name = 'lista.html'
+
+class AtletaDetailView(DetailView):
+    model = PerfilAtleta
+    template_name = 'detalhe-atleta.html'
