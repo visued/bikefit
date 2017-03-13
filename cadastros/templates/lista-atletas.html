@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}BikeFit - Lista de Atletas{% endblock title %}
+{% block content %}
+	<div class="container">
+{% block menuAtual %}Lista de Atletas{% endblock menuAtual %}
+
+
+		<table class="table table-striped">
+		<thead>
+			<th>Nome</th>
+			<th>Criado em</th>
+			<th>Última Atualização</th>
+			<th>Ver</th>
+			{% for at in atletas %}
+			<tr>
+				<td>{{ at.nome }} </td>
+				<td>{{ at.create }}</td>
+				<td>{{ at.update }}</td>
+				<td><a href="/detalhe-atleta/{{ at.id }}/">Ver</a></td>
+			</tr>
+		   {% endfor %}
+		</thead>
+		</table>
+
+{% endblock content %}
+</div>

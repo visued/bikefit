@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}BikeFit - Detalhe do Atleta{% endblock title %}
+{% block menuAtual %}Detalhe do Atleta - {{ object.nome }}{% endblock menuAtual %}
+{% block content %}
+
+
+
+	<table class="table table-responsive" >
+		<thead>
+		<th>Nome</th>
+		<th>Email</th>
+		<th>Telefone</th>
+		<th>Cidade</th>
+		<th>Endereço</th>
+		<th>Nascimento</th>
+		<th>CPF/CNPJ</th>
+		<th>RG</th>
+		<th>Ano ínicio do esporte</th>
+		<th>Modalidade Principal</th>
+		<th>Vezes treino na semana</th>
+		<th>Duração do treino</th>
+		<th>Horas de treino na semana</th>
+		<th>Duração do treino longo</th>
+		<th>Modalidade frequente</th>
+		<th>Profissão</th>
+		<th>Competições que frequenta</th>
+		<th>Duração das provas</th>
+		<th>Tipo de Relevo</th>
+		<th>Nível do Atleta</th>
+		<th>Outros comentários</th>
+		<tr>
+			<td>{{ object.nome }}</td>
+
+			<td>{{ object.email }}</td>
+
+			<td>{{ object.telefone }}</td>
+
+			<td>{{ object.cidade }}</td>
+
+			<td>{{ object.endereco }}</td>
+
+			<td>{{ object.data_nascimento }}</td>
+
+			<td>{{ object.cpf_cnpj }}</td>
+
+			<td>{{ object.rg }}</td>
+
+			<td>{{ object.ano_ini_esporte }}</td>
+
+			<td>{{ object.modalidade_principal }}</td>
+
+			<td>{{ object.horas_trein_semana }}</td>
+
+			<td>{{ object.duracao_treino_longo }}</td>
+
+			<td>{{ object.modalidade_frequente }}</td>
+
+			<td>{{ object.profissao }}</td>
+
+			<td>{{ object.duracao_provas }}</td>
+
+			<td>{{ object.tipo_de_relevo }}</td>
+
+			<td>{{ object.nivel_atleta }}</td>
+
+			<td>{{ object.outros }}</td>
+		</tr>
+		</thead>
+	</table>
+
+
+{% endblock content %}
+{# Read the documentation for more information #}
