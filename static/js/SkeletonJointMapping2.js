@@ -1,12 +1,12 @@
-﻿
+
 $(document).ready(function () {
 
     var $jointlist, $joint_map, default_options, mapsterConfigured;
 
 
     //$toolTipList = $('#hidden_divs');
-    $jointlist = $('#jointlist');
-    $joint_map = $('#body_hand_foot_image');
+    $jointlist = $('#jointlist2');
+    $joint_map = $('#body_hand_foot_image2');
 
     function getFullCheckBoxID(item) {
 
@@ -15,9 +15,9 @@ $(document).ready(function () {
         var rheumType;
 
         if (checkBoxId.indexOf("_swol") >= 1) {
-            rheumType = "_swol"
+            rheumType = "_swol2"
         } else if (checkBoxId.indexOf("_tend") >= 1) {
-            rheumType = "_tend"
+            rheumType = "_tend2"
         }
         return checkBoxName + rheumType;
     }
@@ -37,7 +37,7 @@ $(document).ready(function () {
     }
 
     function setToolTipCheckBoxEvent(data) {
-        // Get the two checkboxes within the 
+        // Get the two checkboxes within the
         var checkBoxes = data.toolTip.find('input');
 
         checkBoxes.each(function () {
@@ -81,10 +81,10 @@ $(document).ready(function () {
 
         if (checkBoxName.indexOf("_swol") >= 1) {
             realName = checkBoxName.substring(0, checkBoxName.indexOf("_swol"));
-            rheumType = "_swol"
+            rheumType = "_swol2"
         } else if (checkBoxName.indexOf("_tend") >= 1) {
             realName = checkBoxName.substring(0, checkBoxName.indexOf("_tend"));
-            rheumType = "_tend"
+            rheumType = "_tend2"
         }
 
         setMapsterArea(chkBox.parent().find('input:checked'), realName);
@@ -96,9 +96,9 @@ $(document).ready(function () {
 
             var chk = null;
             if ($(this).text() == "T") {
-                chk = $(this).parent().children('#id_jl_' + $(this).attr('key') + '_tend');
+                chk = $(this).parent().children('#id_jl_' + $(this).attr('key') + '_tend2');
             } else if ($(this).text() == "S") {
-                chk = $(this).parent().children('#id_jl_' + $(this).attr('key') + '_swol');
+                chk = $(this).parent().children('#id_jl_' + $(this).attr('key') + '_swol2');
             }
 
 
@@ -129,7 +129,7 @@ $(document).ready(function () {
     }
 
     function buildAreas() {
-        var items = $('#jointMap').find('area');
+        var items = $('#jointMap2').find('area');
         var areaArray = [];
 
         items.each(function () {
@@ -143,7 +143,7 @@ $(document).ready(function () {
 
     function buildToolTipArea(name, fullName) {
         return $('<div id="' + name + '_divID"><div>' + fullName + '</div><div>' +
-            '<div><input id="tt_' + name + '_swol" type="checkbox" name="' + name + '" /><span class="sel" key="' + name + '">Selecionar</span></div>');
+            '<div><input id="tt_' + name + '_swol2" type="checkbox" name="' + name + '" /><span class="sel" key="' + name + '">Selecionar</span></div>');
     }
 
     default_options =

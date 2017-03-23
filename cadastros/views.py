@@ -1,10 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import PerfilAvaliadorForm, PerfilAtletaForm, AvaliacaoPosturalForm
 from django.views.generic import FormView, DetailView
 from django.contrib import messages
 
-from .models import PerfilAvaliador, PerfilAtleta, AvaliacaoPostural
-
+from .models import PerfilAvaliador, PerfilAtleta
 
 
 class PerfilAvaliadorFormView(FormView):
@@ -15,7 +14,6 @@ class PerfilAvaliadorFormView(FormView):
             'formAvaliador': formAvaliador
         }
         return render(request, 'cadastro-avaliador.html', context)
-
 
     def post(self, request, *args, **kwargs):
         formAvaliadorSalva = PerfilAvaliadorForm(request.POST)
@@ -70,7 +68,14 @@ class AvaliacaoPosturalFormView(FormView):
             'title': 'Nova Avaliacao Postural',
             'formAvaliacaoPostural': formAvaliacaoPosturalSalva,
         }
-        return render(request, 'avaliacao-postural.html')
+        return render(request, 'avaliacao-postural.html', context)
+
+    def atleta(self, request, pk):
+        perfil = get_object_or_404(PerfilAtleta, pk=pk)
+        context = {
+            'perfil': perfil
+        }
+        return render(request, 'avaliacao-postural.html', context)
 
 
 def listaAvaliadores(request):
@@ -88,6 +93,7 @@ def listaAtletas(request):
         PerfilAtleta.DoesNotExist
 
     return render(request, 'lista-atletas.html', {'atletas': atletas})
+
 
 class AvaliadorDetailView(DetailView):
     model = PerfilAvaliador

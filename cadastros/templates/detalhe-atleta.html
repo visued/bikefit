@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{# Load the tag library #}
+{# Load labele tag library #}
 {% load bootstrap3 %}
 
 {# Load CSS and JavaScript #}
@@ -9,72 +9,49 @@
 {% block title %}BikeFit - Detalhe do Atleta{% endblock title %}
 {% block menuAtual %}Detalhe do Atleta - {{ object.nome }}{% endblock menuAtual %}
 {% block content %}
+<h2>Detalhes do Atleta {{ object.nome }}</h2>
+		<div class="col-md-4" style="text-align: left;"><label> Nome:</label> {{ object.nome }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Email:</label> {{ object.email }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Telefone:</label> {{ object.telefone }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Cidade:</label> {{ object.cidade }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Endereço:</label> {{ object.endereco }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Nascimento:</label> {{ object.data_nascimento }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> CPF/CNPJ:</label> {{ object.cpf_cnpj }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> RG:</label> {{ object.rg }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Ano ínicio do esporte:</label> {{ object.ano_ini_esporte }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Modalidade Principal:</label> {{ object.modalidade_principal }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Vezes treino na semana:</label> {{ object.vezes_treina }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Duração do treino:</label> {{ object.duracao_treino }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Horas de treino na semana:</label> {{ object.horas_trein_semana }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Duração do treino longo:</label> {{ object.duracao_treino_longo }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Modalidade frequente:</label>  {{ object.modalidade_frequente }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Profissão:</label>  {{ object.profissao }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Competições que frequenta:</label></div>
+		<div class="col-md-4" style="text-align: left;"><label> Duração das provas:</label> {{ object.duracao_provas }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Tipo de Relevo:</label> {{ object.tipo_de_relevo }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Nível do Atleta:</label> {{ object.nivel_atleta }}</div>
+		<div class="col-md-4" style="text-align: left;"><label> Outros comentários:</label> {{ object.outros }}</div>
 
+	<h2>Adicionar Nova Avalição</h2>
+			{% buttons %}
+				<form>
+			<button type="submit" class="btn btn-success" formaction="/novo-postural/{{ object.id }}">
 
-
-	<table class="table table-responsive" >
-		<thead>
-		<th>Nome</th>
-		<th>Email</th>
-		<th>Telefone</th>
-		<th>Cidade</th>
-		<th>Endereço</th>
-		<th>Nascimento</th>
-		<th>CPF/CNPJ</th>
-		<th>RG</th>
-		<th>Ano ínicio do esporte</th>
-		<th>Modalidade Principal</th>
-		<th>Vezes treino na semana</th>
-		<th>Duração do treino</th>
-		<th>Horas de treino na semana</th>
-		<th>Duração do treino longo</th>
-		<th>Modalidade frequente</th>
-		<th>Profissão</th>
-		<th>Competições que frequenta</th>
-		<th>Duração das provas</th>
-		<th>Tipo de Relevo</th>
-		<th>Nível do Atleta</th>
-		<th>Outros comentários</th>
-		<tr>
-			<td>{{ object.nome }}</td>
-
-			<td>{{ object.email }}</td>
-
-			<td>{{ object.telefone }}</td>
-
-			<td>{{ object.cidade }}</td>
-
-			<td>{{ object.endereco }}</td>
-
-			<td>{{ object.data_nascimento }}</td>
-
-			<td>{{ object.cpf_cnpj }}</td>
-
-			<td>{{ object.rg }}</td>
-
-			<td>{{ object.ano_ini_esporte }}</td>
-
-			<td>{{ object.modalidade_principal }}</td>
-
-			<td>{{ object.horas_trein_semana }}</td>
-
-			<td>{{ object.duracao_treino_longo }}</td>
-
-			<td>{{ object.modalidade_frequente }}</td>
-
-			<td>{{ object.profissao }}</td>
-
-			<td>{{ object.duracao_provas }}</td>
-
-			<td>{{ object.tipo_de_relevo }}</td>
-
-			<td>{{ object.nivel_atleta }}</td>
-
-			<td>{{ object.outros }}</td>
-		</tr>
-		</thead>
-	</table>
-
+				{% bootstrap_icon "plus" %}Nova Avaliação Postural
+			</button>
+				</form>
+			<button type="submit" class="btn btn-success">
+				{% bootstrap_icon "plus" %}Nova Avaliação Bike Fit Tracking
+			</button>
+			<button type="submit" class="btn btn-success">
+				{% bootstrap_icon "plus" %}Nova Bike Fit Básico
+			</button>
+			<button type="submit" class="btn btn-success">
+				{% bootstrap_icon "plus" %}Nova Potencia Aeróbia maxima com VO2
+			</button>
+			<button type="submit" class="btn btn-success">
+				{% bootstrap_icon "plus" %}Nova Potencia Aeribia máxima simples
+			</button>
+			{% endbuttons %}
 
 {% endblock content %}
-{# Read the documentation for more information #}

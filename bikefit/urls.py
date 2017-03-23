@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cadastro-avaliador/$', PerfilAvaliadorFormView.as_view(), name='cadastro_avaliador'),
     url(r'^cadastro-atleta/$', PerfilAtletaFormView.as_view(), name='cadastro_atleta'),
-    url(r'^novo-postural/$', AvaliacaoPosturalFormView.as_view(), name='avaliacao_postural'),
+    url(r'^novo-postural/(?P<pk>[-\w]+)/$', AvaliacaoPosturalFormView.as_view(), name='avaliacao_postural'),
     url(r'^lista-avaliadores/$', listaAvaliadores),
     url(r'^lista/(?P<pk>[-\w]+)/$', AvaliadorDetailView.as_view(), name='lista'),
     url(r'^lista-atletas/$', listaAtletas),
